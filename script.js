@@ -8,7 +8,7 @@ function clicker() {
 $(document).ready(function () {
 
     $('#generateButton').on('click', function () {
-        $('body').append('<div><button>Swap</button><p>' + counter + '</p><button id="deleteButton">Delete</button></div>');
+        $('body').append('<div><button id="swapButton">Swap</button><p>' + counter + '</p><button id="deleteButton">Delete</button></div>');
         clicker();
     });
 
@@ -16,5 +16,11 @@ $(document).ready(function () {
     $('body').on('click', '#deleteButton', function () {
         $(this).parent().remove();
     });
+
+    $('body').on('click', '#swapButton', function () {
+        $(this).parent().css('background-color', 'yellow');
+    })
+
+
 });
 
