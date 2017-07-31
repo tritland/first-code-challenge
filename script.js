@@ -1,19 +1,20 @@
 console.log('javascript is linked');
 var counter = 0;
+function clicker() {
+    counter++;
+};
 
-$(document).ready(function(){
-    
-    $('#generateButton').on('click', function(){
-        $('body').append('<div></div>');
+
+$(document).ready(function () {
+
+    $('#generateButton').on('click', function () {
+        $('body').append('<div><button>Swap</button><p>' + counter + '</p><button id="deleteButton">Delete</button></div>');
         clicker();
-
-        $('div').append('<p>'+counter+'</p>');   
-});
     });
 
 
+    $('body').on('click', '#deleteButton', function () {
+        $(this).parent().remove();
+    });
+});
 
-
-function clicker(){
-counter ++;
-}
