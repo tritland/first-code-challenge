@@ -1,26 +1,23 @@
 console.log('javascript is linked');
-var counter = 0;
+var counter = 1;
 function clicker() {
     counter++;
 };
 
-
 $(document).ready(function () {
 
     $('#generateButton').on('click', function () {
-        $('body').append('<div><button id="swapButton">Swap</button><p>' + counter + '</p><button id="deleteButton">Delete</button></div>');
+        $('body').append('<div><button class="swapButton">Swap</button><p>'
+            + counter + '</p><button class="deleteButton">Delete</button></div>');
         clicker();
     });
 
-
-    $('body').on('click', '#deleteButton', function () {
+    $('body').on('click', '.deleteButton', function () {
         $(this).parent().remove();
     });
 
-    $('body').on('click', '#swapButton', function () {
-        $(this).parent().css('background-color', 'yellow');
-    })
-
-
+    $('body').on('click', '.swapButton', function () {
+        $(this).closest('div').toggleClass('classSwap');
+    });
 });
 
